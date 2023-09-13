@@ -4,6 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F03D85"
     tools:context=".Menu">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="363dp"
+        android:layout_height="89dp"
+
+        app:cardBackgroundColor="#3F1022"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="91dp">
+
+            <LinearLayout
+                android:layout_width="356dp"
+                android:layout_height="89dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="2dp">
+
+                <ImageButton
+                    android:id="@+id/imageButton4"
+                    android:layout_width="291dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="fitStart"
+                    app:srcCompat="@drawable/logobtn" />
+
+                <ImageButton
+                    android:id="@+id/imageButtonmenu"
+                    android:layout_width="62dp"
+                    android:layout_height="63dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/menubtn" />
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="#F03D85"
+        android:id="@+id/RVMenu"
+        android:layout_width="359dp"
+        android:layout_height="685dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.978" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
