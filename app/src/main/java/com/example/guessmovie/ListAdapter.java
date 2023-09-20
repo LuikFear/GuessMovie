@@ -26,7 +26,6 @@ public class ListAdapter  extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     public ListAdapter(List<ListItemM> itemList, Context context,ListAdapter.OnItemClickListener listener){
-
         this.inflater= LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
@@ -42,7 +41,6 @@ public class ListAdapter  extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         View view = inflater.inflate(R.layout.item_list,null);
         return new ListAdapter.ViewHolder(view);
-
 
     }
 

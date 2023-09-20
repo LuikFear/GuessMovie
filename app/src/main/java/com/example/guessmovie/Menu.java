@@ -32,14 +32,11 @@ init();
     }
 
 
-
-
     public void init() {
         items = new ArrayList<>();
-
        items.add(new ListItemM("775447","Action Movies", "Action Movies Only Play now","not finished"));
         items.add(new ListItemM("775447","Romance Movies", "Romance Movies Only Play now","not finished"));
-        items.add(new ListItemM("775447","Comedy Movies", "Comedy Movies HAHAHA Play now","not finished"));
+        items.add(new ListItemM("775447","Your List", "Personalize your list here",":D"));
 
         ListAdapter listAdapter = new ListAdapter(items, this, new ListAdapter.OnItemClickListener() {
             @Override
@@ -51,13 +48,37 @@ init();
         recyclerView1.setHasFixedSize(true);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
         recyclerView1.setAdapter(listAdapter);
-
     }
-public void moveTolevel(ListItemM itemM){
-    Intent intent = new Intent(this,LevelActivity.class );
-    intent.putExtra("ListItemM",itemM);
-startActivity(intent);
-}
+
+    public class ActionActivity extends AppCompatActivity {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_menu);
+
+            Intent intent = getIntent();
+            if (intent != null) {
+                ListItemM itemM = intent.getParcelableExtra("ListItemM");
+            }
+        }
+    }
+
+    public void moveTolevel(ListItemM itemM) {
+        Intent intent;
+
+        if ("Action Movies".equals(itemM.getName())) {
+            intent = new Intent(this, LevelActivity.class);
+        } else if ("Romance Movies".equals(itemM.getName())) {
+            intent = new Intent(this, twitter.class);
+        } else if ("Comedy Movies".equals(itemM.getName())) {
+            intent = new Intent(this, MainActivity.class);
+        } else {
+            return;
+        }
+
+        intent.putExtra("ListItemM", itemM);
+        startActivity(intent);
+    }
 
 
 }

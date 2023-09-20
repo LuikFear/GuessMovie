@@ -58,10 +58,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:background="#F03D85"
         android:id="@+id/RVMenu"
-        android:layout_width="359dp"
-        android:layout_height="685dp"
+        android:layout_width="363dp"
+        android:layout_height="643dp"
+        android:background="#F03D85"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

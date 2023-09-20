@@ -15,6 +15,18 @@
         android:theme="@style/Theme.GuessMovie"
         tools:targetApi="31">
         <activity
+            android:name=".CreateMovieList"
+            android:exported="false" />
+        <activity
+            android:name=".MovieGames.Action3"
+            android:exported="false" />
+        <activity
+            android:name=".MovieGames.Action2"
+            android:exported="false" />
+        <activity
+            android:name=".MovieGames.Action1"
+            android:exported="false" />
+        <activity
             android:name=".LevelActivity"
             android:exported="false" />
         <activity
