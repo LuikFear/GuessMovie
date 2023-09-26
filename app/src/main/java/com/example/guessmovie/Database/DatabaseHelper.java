@@ -9,13 +9,20 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;//movies hint added
     private static final String DATABASE_NAME = "movies.db";
 
+    //Movies
     public static final String TABLE_MOVIE = "movies";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_DESCRIPTION = "des";
+
+    public static final String COLUMN_LevelSelected = "levelselected";
+
+    public static final String COLUMN_HINT1 = "hint1";
+    public static final String COLUMN_HINT2 = "hint2";
+    public static final String COLUMN_HINT3 = "hint3";
 
     // Users
     public static final String TABLE_USERS = "usuarios";
@@ -29,13 +36,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Crear la tabla de películas
+        //tabla de películas
         String createMoviesTableQuery = "CREATE TABLE " + TABLE_MOVIE + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_TITLE + " TEXT, " + COLUMN_DESCRIPTION + " TEXT)";
+                COLUMN_ID + " INTEGER PRIMARY KEY, " +
+                COLUMN_TITLE + " TEXT, " +
+                COLUMN_DESCRIPTION + " TEXT, " +
+                COLUMN_HINT1 + " TEXT, " +
+                COLUMN_HINT2 + " TEXT, " +
+                COLUMN_HINT3 + " TEXT, " +
+                COLUMN_LevelSelected + " INTEGER)";
         db.execSQL(createMoviesTableQuery);
 
-        // Crear la tabla de usuarios
+        //tabla de usuarios
         String createUsersTableQuery = "CREATE TABLE " + TABLE_USERS + "(" +
                 COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_USERNAME + " TEXT, " + COLUMN_PASSWORD + " TEXT)";
@@ -49,7 +61,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String dropUsersTableQuery = "DROP TABLE IF EXISTS " + TABLE_USERS;
         db.execSQL(dropUsersTableQuery);
-
         onCreate(db);
     }
 
@@ -60,11 +71,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PASSWORD, password);
         return db.insert(TABLE_USERS, null, values);
     }
-    public long insertMovie(String movie, String description) {
+    public long insertMovie(String movie, String description, String hint1, String hint2, String hint3, int levelSelected) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE, movie);
         values.put(COLUMN_DESCRIPTION, description);
+        values.put(COLUMN_HINT1, hint1);
+        values.put(COLUMN_HINT2, hint2);
+        values.put(COLUMN_HINT3, hint3);
+        values.put(COLUMN_LevelSelected, levelSelected); // Agregar el nuevo campo
         return db.insert(TABLE_MOVIE, null, values);
     }
     public ArrayList<String> getAllUsers() {
@@ -99,8 +114,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return exists;
     }
 
-    public Cursor getAllTasks() {
+    public MovieData getMovieData(int levelSelected) {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.query(TABLE_MOVIE, null, null, null, null, null, null);
+        MovieData movieData = null;
+
+        Cursor cursor = db.query(TABLE_MOVIE,
+                new String[]{COLUMN_TITLE, COLUMN_DESCRIPTION, COLUMN_HINT1, COLUMN_HINT2, COLUMN_HINT3, COLUMN_LevelSelected},
+                COLUMN_LevelSelected + "=?",
+                new String[]{String.valueOf(levelSelected)}, // Buscar por levelSelected
+                null, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            movieData = new MovieData(
+                    cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)),
+                    cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)),
+                    cursor.getInt(cursor.getColumnIndex(COLUMN_LevelSelected)), // Obtén el nivel seleccionado como entero
+                    cursor.getString(cursor.getColumnIndex(COLUMN_HINT1)),
+                    cursor.getString(cursor.getColumnIndex(COLUMN_HINT2)),
+                    cursor.getString(cursor.getColumnIndex(COLUMN_HINT3))
+            );
+            cursor.close();
+        }
+
+        db.close();
+        return movieData;
     }
+
+
 }

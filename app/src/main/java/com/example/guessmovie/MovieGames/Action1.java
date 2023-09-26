@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guessmovie.LevelActivity;
 import com.example.guessmovie.Menu;
 import com.example.guessmovie.R;
 
@@ -50,7 +51,7 @@ public class Action1 extends AppCompatActivity {
 
                 if (answer.equals("avengers")) {
                     Toast.makeText(Action1.this, "CONGRATULATIONS LEVEL 1 COMPLETED", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), Menu.class);
+                    Intent intent = new Intent(Action1.this, LevelActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(Action1.this, "Continue Trying", Toast.LENGTH_SHORT).show();

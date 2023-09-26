@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guessmovie.LevelActivity;
+import com.example.guessmovie.Menu;
 import com.example.guessmovie.R;
 
 public class Action2 extends AppCompatActivity {
@@ -51,7 +52,7 @@ public class Action2 extends AppCompatActivity {
 
                 if (answer.equals("deadpool")) {
                     Toast.makeText(Action2.this, "CONGRATULATIONS LEVEL 2 COMPLETED", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), Menu.class);
+                    Intent intent = new Intent(Action2.this, LevelActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(Action2.this, "Continue Trying", Toast.LENGTH_SHORT).show();

@@ -7,8 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.guessmovie.Romance.RomanceMenu;
+import com.example.guessmovie.YourList.YourMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +22,7 @@ public class Menu extends AppCompatActivity {
     private List<ListItemM> items;
     private RecyclerView recyclerView;
     private ListAdapter adapter;
-
+    private ImageButton MenuBtn;
 
 
 
@@ -25,7 +30,13 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+    MenuBtn = findViewById(R.id.imageButtonMenu);
+        MenuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
 
 init();
 
@@ -69,9 +80,9 @@ init();
         if ("Action Movies".equals(itemM.getName())) {
             intent = new Intent(this, LevelActivity.class);
         } else if ("Romance Movies".equals(itemM.getName())) {
-            intent = new Intent(this, twitter.class);
-        } else if ("Comedy Movies".equals(itemM.getName())) {
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, RomanceMenu.class);
+        } else if ("Your List".equals(itemM.getName())) {
+            intent = new Intent(this, YourMenu.class);
         } else {
             return;
         }
