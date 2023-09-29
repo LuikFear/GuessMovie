@@ -8,7 +8,7 @@
     tools:context=".MovieGames.Action1">
 
     <Button
-        android:id="@+id/AnswerbtnRomance"
+        android:id="@+id/Answerbtn"
         android:layout_width="175dp"
         android:layout_height="48dp"
         android:background="@drawable/button_rounded_background"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.61" />
 
     <EditText
-        android:id="@+id/AnswerRomance"
+        android:id="@+id/Answer"
         android:layout_width="297dp"
         android:layout_height="48dp"
         android:background="@drawable/edittext_rounded_background"

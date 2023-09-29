@@ -48,7 +48,7 @@ public class RomanceMenu extends AppCompatActivity {
                         startActivity(nivel2Intent);
                         break;
                     case 2:
-                        Intent nivel3Intent = new Intent(RomanceMenu.this, Action3.class);
+                        Intent nivel3Intent = new Intent(RomanceMenu.this, Romance3.class);
                         startActivity(nivel3Intent);
                         break;
                     default:

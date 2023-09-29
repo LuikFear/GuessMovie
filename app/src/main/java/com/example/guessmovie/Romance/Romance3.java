@@ -13,23 +13,22 @@ import android.widget.Toast;
 import com.example.guessmovie.Menu;
 import com.example.guessmovie.R;
 
-public class Romance2 extends AppCompatActivity {
-
+public class Romance3 extends AppCompatActivity {
     private TextView hintTextView;
     private Button hintButton;
     private Button answerButton;
     private EditText answerEditText;
-    private int hintIndexR = 0;
+    private int hintIndex = 0;
 
-    private String[] hintsR = {
-            "     Cruiser",
-            "     Love Story",
-            "     Iceberg "
+    private String[] hints = {
+            " A vibrant journey through the afterlife in animation",
+            " An immortal bet shapes an extraordinary love story",
+            " Music and tradition guide the hero's adventure in this visually stunning tale "
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_romance2);
+        setContentView(R.layout.activity_romance3);
 
         hintTextView = findViewById(R.id.hint);
         hintButton = findViewById(R.id.hintbtn);
@@ -39,8 +38,8 @@ public class Romance2 extends AppCompatActivity {
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hintTextView.setText(hintsR[hintIndexR]);
-                hintIndexR = (hintIndexR + 1) % hintsR.length;
+                hintTextView.setText(hints[hintIndex]);
+                hintIndex = (hintIndex + 1) % hints.length;
             }
         });
 
@@ -49,18 +48,13 @@ public class Romance2 extends AppCompatActivity {
             public void onClick(View v) {
                 String answer = answerEditText.getText().toString().toLowerCase();
 
-                if (answer.equals("titanic")) {
-                    Toast.makeText(Romance2.this, "CONGRATULATIONS LEVEL 2 COMPLETED", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Romance2.this, RomanceMenu.class);
+                if (answer.equals("book of life")) {
+                    Toast.makeText(Romance3.this, "CONGRATULATIONS LEVEL 3 COMPLETED", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Romance3.this, Menu.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(Romance2.this, "Continue Trying", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Romance3.this, "Continue Trying", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
-
-
-
     }}

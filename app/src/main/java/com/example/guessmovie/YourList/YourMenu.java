@@ -51,7 +51,7 @@ public class YourMenu extends AppCompatActivity {
                         startActivity(nivel2Intent);
                         break;
                     case 2:
-                        Intent nivel3Intent = new Intent(YourMenu.this, Action3.class);
+                        Intent nivel3Intent = new Intent(YourMenu.this, YourMovie3.class);
                         startActivity(nivel3Intent);
                         break;
                     default:

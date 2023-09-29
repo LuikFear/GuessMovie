@@ -25,11 +25,10 @@ TextView nameLevelTextView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
 
-        ListItemM itemM = (ListItemM) getIntent().getSerializableExtra("ListItemM");
+
         nameLevelTextView = findViewById(R.id.LevelNameTextView);
         statusLevelTextView = findViewById(R.id.LevelStatusTextView);
-        nameLevelTextView.setText(itemM.getName());
-        statusLevelTextView.setText(itemM.getStatus());
+    nameLevelTextView.setText("Action Movies");
 
         String[] levelNames = {"Level 1", "Level 2", "Level 3"};
 

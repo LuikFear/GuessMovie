@@ -88,4 +88,18 @@
         app:layout_constraintVertical_bias="0.731"
         app:srcCompat="@drawable/loginbtn" />
 
+    <ImageButton
+        android:id="@+id/gugulbtn"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#05FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933"
+        app:srcCompat="@drawable/gugulpng" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

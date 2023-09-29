@@ -58,7 +58,7 @@ public class YourMovie3 extends AppCompatActivity {
                 public void onClick(View v) {
                     String answer = answerEditText.getText().toString().toLowerCase();
                     if (answer.equals(movieData.getTitle().toLowerCase())) {
-                        Toast.makeText(YourMovie3.this, "CONGRATULATIONS LEVEL 2 COMPLETED", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(YourMovie3.this, "CONGRATULATIONS LEVEL 3 COMPLETED", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), Menu.class);
                         startActivity(intent);
                     } else {

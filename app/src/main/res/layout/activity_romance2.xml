@@ -47,15 +47,15 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383" />
+        app:layout_constraintVertical_bias="0.404" />
 
     <TextView
         android:id="@+id/hint"
-        android:layout_width="339dp"
-        android:layout_height="33dp"
+        android:layout_width="336dp"
+        android:layout_height="53dp"
         android:background="@drawable/editblancotextview"
         android:text="  If you want a hint press button"
         android:textColor="@color/black"

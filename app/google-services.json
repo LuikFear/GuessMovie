@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "459291195304",
+    "firebase_url": "https://guessmovie-0w0-default-rtdb.firebaseio.com",
+    "project_id": "guessmovie-0w0",
+    "storage_bucket": "guessmovie-0w0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459291195304:android:a606a268a6b0a3e78f8f9d",
+        "android_client_info": {
+          "package_name": "com.example.guessmovie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459291195304-m01au1prdg4vhj93nefo4u36b14rfb5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guessmovie",
+            "certificate_hash": "7dacb17d89dccc8e698d096f8725aa0312e7efce"
+          }
+        },
+        {
+          "client_id": "459291195304-06opd2bmf6jk130nfqh9613309csgtsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYCFTjnSF9C4NmoXy2WNFrMdeNRXjq1Jk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459291195304-06opd2bmf6jk130nfqh9613309csgtsd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
