@@ -30,10 +30,12 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-    MenuBtn = findViewById(R.id.imageButtonMenu);
+    MenuBtn = findViewById(R.id.profilebtn);
         MenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
             }
         });
@@ -45,8 +47,8 @@ init();
 
     public void init() {
         items = new ArrayList<>();
-       items.add(new ListItemM("775447","Action Movies", "Action Movies Only Play now","not finished"));
-        items.add(new ListItemM("775447","Romance Movies", "Romance Movies Only Play now","not finished"));
+       items.add(new ListItemM("775447","Action Movies", "Action Movies Only Play now","OwO"));
+        items.add(new ListItemM("775447","Romance Movies", "Romance Movies Only Play now","<3"));
         items.add(new ListItemM("775447","Your List", "Personalize your list here",":D"));
 
         ListAdapter listAdapter = new ListAdapter(items, this, new ListAdapter.OnItemClickListener() {

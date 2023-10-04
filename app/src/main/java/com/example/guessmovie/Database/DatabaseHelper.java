@@ -9,7 +9,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 2;//movies hint added
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "movies.db";
 
     //Movies
@@ -17,9 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_DESCRIPTION = "des";
-
     public static final String COLUMN_LevelSelected = "levelselected";
-
     public static final String COLUMN_HINT1 = "hint1";
     public static final String COLUMN_HINT2 = "hint2";
     public static final String COLUMN_HINT3 = "hint3";
@@ -33,7 +31,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         //tabla de películas
@@ -79,7 +76,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_HINT1, hint1);
         values.put(COLUMN_HINT2, hint2);
         values.put(COLUMN_HINT3, hint3);
-        values.put(COLUMN_LevelSelected, levelSelected); // Agregar el nuevo campo
+        values.put(COLUMN_LevelSelected, levelSelected);
         return db.insert(TABLE_MOVIE, null, values);
     }
     public ArrayList<String> getAllUsers() {
@@ -121,14 +118,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_MOVIE,
                 new String[]{COLUMN_TITLE, COLUMN_DESCRIPTION, COLUMN_HINT1, COLUMN_HINT2, COLUMN_HINT3, COLUMN_LevelSelected},
                 COLUMN_LevelSelected + "=?",
-                new String[]{String.valueOf(levelSelected)}, // Buscar por levelSelected
+                new String[]{String.valueOf(levelSelected)},
                 null, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
             movieData = new MovieData(
                     cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)),
                     cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)),
-                    cursor.getInt(cursor.getColumnIndex(COLUMN_LevelSelected)), // Obtén el nivel seleccionado como entero
+                    cursor.getInt(cursor.getColumnIndex(COLUMN_LevelSelected)),
                     cursor.getString(cursor.getColumnIndex(COLUMN_HINT1)),
                     cursor.getString(cursor.getColumnIndex(COLUMN_HINT2)),
                     cursor.getString(cursor.getColumnIndex(COLUMN_HINT3))
@@ -139,6 +136,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return movieData;
     }
-
+    public void deleteMovieByLevel(int levelSelected) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String whereClause = COLUMN_LevelSelected + " = ?";
+        String[] whereArgs = {String.valueOf(levelSelected)};
+        db.delete(TABLE_MOVIE, whereClause, whereArgs);
+        db.close();
+    }
 
 }

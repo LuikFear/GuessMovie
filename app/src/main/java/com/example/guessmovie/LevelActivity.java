@@ -28,7 +28,7 @@ TextView nameLevelTextView;
 
         nameLevelTextView = findViewById(R.id.LevelNameTextView);
         statusLevelTextView = findViewById(R.id.LevelStatusTextView);
-    nameLevelTextView.setText("Action Movies");
+        nameLevelTextView.setText("Action Movies");
 
         String[] levelNames = {"Level 1", "Level 2", "Level 3"};
 

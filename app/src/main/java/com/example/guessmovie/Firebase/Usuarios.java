@@ -14,6 +14,12 @@ public class Usuarios {
         this.score = score;
     }
 
+    public Usuarios(String userId, String name, String profile) {
+        this.userId = userId;
+        this.name = name;
+        this.profile = profile;
+    }
+
     public String getUserId() {
         return userId;
     }

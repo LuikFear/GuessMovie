@@ -18,7 +18,7 @@ public class DAOUsuario {
 
     }
 
-    public Task<Void> add(Usuarios user){
+    public Task<Void> add(localusers user){
         return databaseReference.push().setValue(user);
     }
 

@@ -25,7 +25,7 @@ EditText titletxt, destxt, hint1,hint2,hint3,lvselect;
         setContentView(R.layout.activity_create_movie_list);
         addbtn=findViewById(R.id.addButton);
         titletxt=findViewById(R.id.Title);
-        destxt=findViewById(R.id.Des);
+        //destxt=findViewById(R.id.Des);
         hint1=findViewById(R.id.hint1);
         hint2=findViewById(R.id.hint2);
         hint3=findViewById(R.id.hint3);
@@ -34,9 +34,8 @@ EditText titletxt, destxt, hint1,hint2,hint3,lvselect;
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Obtiene los valores de los EditText
                 String title = titletxt.getText().toString();
-                String description = destxt.getText().toString();
+                String description = "des";
                 String hint1Value = hint1.getText().toString();
                 String hint2Value = hint2.getText().toString();
                 String hint3Value = hint3.getText().toString();
@@ -61,12 +60,12 @@ EditText titletxt, destxt, hint1,hint2,hint3,lvselect;
                 if (result != -1) {
                     Toast.makeText(CreateMovieList.this, "Your movie was added c:", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(getApplicationContext(), YourMovie1.class);
+                    Intent intent = new Intent(getApplicationContext(), YourMenu.class);
                     intent.putExtra("title", title);
                     intent.putExtra("hints", new String[]{hint1Value, hint2Value, hint3Value});
                     startActivity(intent);
                 } else {
-                    Toast.makeText(CreateMovieList.this, "Hubo un error al agregar tu película :c", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateMovieList.this, "There was an error while adding ur movie :c", Toast.LENGTH_SHORT).show();
                 }
             }
         });

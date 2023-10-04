@@ -16,7 +16,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.guessmovie.Database.DatabaseHelper;
+import com.example.guessmovie.Firebase.DAOUsuario;
 import com.example.guessmovie.Firebase.Usuarios;
+import com.example.guessmovie.Firebase.localusers;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -59,12 +61,21 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         Loginbtn.startAnimation(fadeInAnimation);
+        final DAOUsuario dao = new DAOUsuario();
 
         Loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = userTXT.getText().toString().trim();
                 String password = passTXT.getText().toString().trim();
+                localusers Localusers = new localusers(username, password);
+                dao.add(Localusers)
+                        .addOnSuccessListener(suc -> {
+                            //Toast.makeText(MainActivity.this, "Se insertó con éxito", Toast.LENGTH_SHORT).show();
+                        })
+                        .addOnFailureListener(er -> {
+                            Toast.makeText(MainActivity.this, er.getMessage(), Toast.LENGTH_SHORT).show();
+                        });
 
                 if (!isValidUsername(username)) {
                     Toast.makeText(MainActivity.this, "Invalid Username no spaces between or special characters", Toast.LENGTH_SHORT).show();
@@ -93,14 +104,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 feisbtn.startAnimation(fadeInAnimation);
-                mostrarUsuarios();
+                //mostrarUsuarios();
+                Intent intent = new Intent(getApplicationContext(), Feis.class);
+                startActivity(intent);
             }
         });
         twitterbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 twitterbtn.startAnimation(fadeInAnimation);
-                Intent intent = new Intent(getApplicationContext(), Menu.class);
+                Intent intent = new Intent(getApplicationContext(), twitter.class);
                 startActivity(intent);
             }
         });
